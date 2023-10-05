@@ -9,7 +9,7 @@ import {
   type AccordionItemProps,
   type AccordionTriggerProps,
   type AccordionHeaderProps,
-} from "@qwik-ui/headless";
+} from "~/components/headless/accordion";
 
 import { cn } from "~/lib/utils";
 
@@ -39,12 +39,12 @@ const AccordionTrigger = component$<AccordionTriggerProps>((props) => {
     <QwikUIAccordionTrigger
       class={cn(
         "flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
-        props.class
+        props.class,
       )}
       {...props}
     >
       <Slot />
-      <LuChevronDown class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
+      <LuChevronDown class="text-muted-foreground h-4 w-4 shrink-0 transition-transform duration-200" />
     </QwikUIAccordionTrigger>
   );
 });
@@ -53,8 +53,8 @@ const AccordionContent = component$<AccordionItemProps>((props) => {
   return (
     <QwikUIAccordionContent
       class={cn(
-        "overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
-        props.class
+        "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm",
+        props.class,
       )}
       {...props}
     >

@@ -1,5 +1,12 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionHeader,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
 
 export default component$(() => {
   return (
@@ -10,6 +17,14 @@ export default component$(() => {
         <br />
         Happy coding.
       </p>
+      <Accordion class="w-96">
+        <AccordionItem>
+          <AccordionHeader>
+            <AccordionTrigger>You know what?</AccordionTrigger>
+          </AccordionHeader>
+          <AccordionContent>The Jack Shelton is awesome!</AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </>
   );
 });
